@@ -1,3 +1,17 @@
+
+/* ==========================
+   1. COULEURS ET BASE DU SITE
+   ========================== */
+
+:root {
+    --ivoire: #F3EBDD;
+    --vert: #26352B;
+    --or: #B99A65;
+    --charbon: #24221F;
+    --beige: #DED5C6;
+    --texte-secondaire: #625E55;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,26 +20,35 @@
 
 body {
     font-family: Arial, sans-serif;
-    color: #302a2a;
-    background: #fffaf8;
+    color: var(--charbon);
+    background: var(--ivoire);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     line-height: 1.6;
 }
 
-/* HEADER & FOOTER */
+img {
+    max-width: 100%;
+}
+
+/* ==========================
+   2. EN-TETE ET PIED DE PAGE
+   ========================== */
+
 .site-header {
-    background: #f4e5e2;
+    background: var(--ivoire);
     padding: 1rem 5vw;
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--beige);
 }
 
 .site-footer {
-    background: #f4e5e2;
-    padding: 1rem 5vw;
+    background: var(--vert);
+    color: var(--ivoire);
+    padding: 2rem 5vw;
     text-align: center;
     margin-top: 3rem;
 }
@@ -37,48 +60,44 @@ body {
     gap: 1rem;
 }
 
+/* Logo en image */
 .logo {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #6b3945;
-    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
+.logo img {
+    display: block;
+    width: auto;
+    height: 55px;
+    object-fit: contain;
+}
+
+/* Menu de navigation */
 .nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .nav a {
-    color: #6b3945;
+    color: var(--vert);
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .nav a:hover {
-    text-decoration: underline;
+    color: var(--or);
 }
 
-/* BOUTON BURGER (MOBILE) */
-.burger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
+/* ==========================
+   3. STRUCTURE GENERALE
+   ========================== */
 
-.burger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: #6b3945;
-}
-
-/* STRUCTURE GENERALE */
 .container {
-    width: min(1100px, 90%);
+    width: min(1200px, 90%);
     margin: 0 auto;
 }
 
@@ -87,57 +106,68 @@ main {
 }
 
 .section {
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
 
 .section-alt {
-    background: #f4e5e2;
+    background: #E9E0D2;
 }
 
 .section h2 {
     text-align: center;
     margin-bottom: 2rem;
+    color: var(--vert);
 }
 
-/*  BOUTONS */
+/* ==========================
+   4. BOUTONS
+   ========================== */
+
 .btn {
     display: inline-block;
-    padding: 0.75rem 1rem;
-    border-radius: 0.25rem;
-    background: #6b3945;
-    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 3px;
+    background: var(--vert);
+    color: var(--ivoire);
     text-decoration: none;
-    border: none;
+    border: 1px solid var(--vert);
     cursor: pointer;
     font-size: 1rem;
+    transition: background 0.3s, color 0.3s;
 }
 
 .btn:hover {
-    background: #c9a7a0;
+    background: var(--or);
+    border-color: var(--or);
+    color: var(--charbon);
 }
 
-/* RESPONSIVE (MOBILE) */
+/* ==========================
+   5. ADAPTATION AUX TELEPHONES
+   ========================== */
 
 @media (max-width: 600px) {
     .site-header {
+        padding: 1rem 5%;
+    }
+
+    .header-inner {
         align-items: flex-start;
         flex-direction: column;
     }
 
-    .burger {
-        display: flex;
-        position: absolute;
-        right: 5vw;
-        top: 1rem;
+    .logo img {
+        height: 45px;
     }
 
     .nav {
-        display: none;
-        flex-direction: column;
         width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
     }
 
-    .nav.open {
-        display: flex;
+    .section {
+        padding: 2.5rem 0;
     }
 }
